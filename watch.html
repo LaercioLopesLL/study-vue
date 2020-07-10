@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<h1>{{contador}}</h1>
+		<button @click="contador++">Mais 1</button>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				contador: 0
+			},
+			watch:{
+				contador(novo, anterior){
+					console.log(`Mudou de ${anterior} para ${novo}`)
+				}
+			}
+		})
+	</script>
+	
+</body>
+</html>

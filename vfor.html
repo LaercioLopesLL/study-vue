@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+				<th>Idade</th>
+			</tr>
+			<tr v-for="dado in dados" :key="dado.id">
+				<td>{{dado.id}}</td>
+				<td>{{dado.nome}}</td>
+				<td>{{dado.idade}}</td>
+			</tr>
+		</table>		
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				dados: [
+					{
+						id: 1,
+						nome: 'Laercio Lopes',
+						idade: '34'
+					},
+					{
+						id: 2,
+						nome: 'Noelia',
+						idade: '31'
+					},
+				]
+			},
+		})
+	</script>
+	
+</body>
+</html>

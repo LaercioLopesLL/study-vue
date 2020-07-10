@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<select name="pais" v-model="pais">
+			<option v-for="{name}, key in paises" :value="key">{{name}}</option>
+		</select>
+		<br>
+		<br>
+		<br>
+		<img style="max-width: 300px; border: solid;" :src="bandeira" alt="">
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				paises: {},
+				pais: '',
+				bandeira: ''
+			},
+			watch:{
+				pais(){
+					this.bandeira = this.paises[this.pais].flag
+				}
+			}
+		})
+
+		fetch('https://restcountries.eu/rest/v2/all')
+		.then(r => r.json())
+		.then(r => vm.paises = r)
+
+	</script>
+	
+</body>
+</html>

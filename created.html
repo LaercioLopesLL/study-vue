@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		<div class="fixed">
+			<h1>{{totalScroll}}</h1>
+		</div>
+	</div>
+	<script>
+		const vm = new Vue({
+			el: '#app',
+			data: {
+				totalScroll: 0
+			},
+			methods:{
+				handleScroll(){
+					this.totalScroll = window.scrollY
+				}
+			},
+			created(){
+				window.addEventListener('scroll', this.handleScroll)
+			}
+		})
+
+	</script>
+
+	<style>
+		.fixed{
+			position: fixed;
+			bottom: 0;
+			background: green;
+			width: 200px;
+			padding: 20px;
+		}
+
+		body{
+			height: 2000px;
+		}
+	</style>
+	
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div :style="{ color: cor }">
+            <h1>{{AppName}}</h1>
+            <p>Produto R$ <span>{{preco}}</span></p>
+            <button @click="total++">Adicionar</button>
+            <button @click="total--">Remover</button>
+            <br>
+            Quantidade: <span>{{total}}</span> Total: <span>{{total * preco}}</span>
+            <br>
+            <input v-model="cor" type="color" name="cor" id="cor"> {{cor}}
+        </div>
+    </div>
+
+
+    <script src="js/vue.js"></script>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                AppName: 'Vue Course',
+                preco: 29,
+                total: 0,
+                cor: '#000000'
+            }
+        })
+
+        console.log(vm)
+
+    </script>
+</body>
+</html>
